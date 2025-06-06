@@ -17,13 +17,9 @@ bottone.addEventListener('click', function() {
 });*/
 
 bottone.addEventListener('click', function() {
-    const inputKm = document.getElementById('km');
-    const inputEta = document.getElementById('eta');
+    const km = document.getElementById('km').value;
+    const eta = document.getElementById('eta').value;
     
-    const km = inputKm.value;
-    const eta = inputEta.value;
-    
-    // Controllo se è vuoto
     if (km == '') {
         console.log('Errore: inserisci i km!');
         return;
@@ -33,6 +29,10 @@ bottone.addEventListener('click', function() {
         return;
     }
     
-    const prezzo = km * 0.21;
+    // Converto in numeri
+    const numeroKm = Number(km);
+    const numeroEta = Number(eta);
+    
+    const prezzo = numeroKm * 0.21;
     console.log('Prezzo:', prezzo);
 });
