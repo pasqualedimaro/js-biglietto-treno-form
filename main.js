@@ -16,8 +16,6 @@ bottone.addEventListener('click', function() {
     console.log('Età:', inputEta.value);
 });*/
 
-//provo a fare calcolo 
-
 bottone.addEventListener('click', function() {
     const inputKm = document.getElementById('km');
     const inputEta = document.getElementById('eta');
@@ -25,8 +23,16 @@ bottone.addEventListener('click', function() {
     const km = inputKm.value;
     const eta = inputEta.value;
     
-    // Calcolo semplice
-    const prezzo = km * 0.21;
+    // Controllo se è vuoto
+    if (km == '') {
+        console.log('Errore: inserisci i km!');
+        return;
+    }
+    if (eta == '') {
+        console.log('Errore: inserisci età!');
+        return;
+    }
     
+    const prezzo = km * 0.21;
     console.log('Prezzo:', prezzo);
 });
