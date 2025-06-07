@@ -1,5 +1,23 @@
 
-    const form = document.getElementById('form-biglietto');
+       // genero numeri casuali da 100000 a 999999
+    function generaNumeroOrdine() {
+    return Math.floor(Math.random() * 900000) + 100000;
+    }
+
+    // genero posto a sedere casuale
+    function generaPostoSedere() {
+    const numero = Math.floor(Math.random() * 20) + 1;
+    const lettere = ['A', 'B', 'C', 'D'];
+    const lettera = lettere[Math.floor(Math.random() * lettere.length)];
+    return numero + lettera;
+    }
+
+    // genero carozza casuale  
+    function generaCarrozza() {
+    return Math.floor(Math.random() * 16) + 1; // da 1 a 16
+    }
+
+   const form = document.getElementById('form-biglietto');
 
     form.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -42,13 +60,20 @@
         prezzo = prezzo - (prezzo * 40 / 100);
         sconto = 'Sconto over 65 (40%)';
     }
+
+     // genero i dati casuali per il biglietto
+    const numeroOrdine = generaNumeroOrdine();
+    const postoSedere = generaPostoSedere();
+    const carrozza = generaCarrozza();
     
      // Mostro il risultato
     risultatoDiv.innerHTML = 
-    `<h2>Il tuo biglietto:</h2>
-    <p>Passeggero: ${nome} ${cognome}</p>
-    <p>Sconto applicato: ${sconto}</p>
+    `<h2>Il tuo biglietto</h2>
+    <p><strong>Passeggero:</strong> ${nome} ${cognome}</p>
+    <p><strong>Numero Ordine:</strong> ${numeroOrdine}</p>
+    <p><strong>Carrozza:</strong> ${carrozza}</p>
+    <p><strong>Posto:</strong> ${postoSedere}</p>
+    <p><strong>Sconto applicato:</strong> ${sconto}</p>
     <p><strong>Prezzo finale: €${prezzo.toFixed(2)}</strong></p>`;
-
 });
 
