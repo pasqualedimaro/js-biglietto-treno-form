@@ -16,7 +16,11 @@ bottone.addEventListener('click', function() {
     console.log('Età:', inputEta.value);
 });*/
 
-bottone.addEventListener('click', function() {
+    const form = document.getElementById('form-biglietto');
+
+    form.addEventListener('submit', function() {
+    console.log('Form inviato!');
+    
     const km = document.getElementById('km').value;
     const eta = document.getElementById('eta').value;
     
