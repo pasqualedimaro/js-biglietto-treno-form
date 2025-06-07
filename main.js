@@ -32,14 +32,15 @@
     const numeroEta = Number(eta);
     
     let prezzo = numeroKm * 0.21;
+    let sconto = "nessuno";
     
     // Sconti per età
     if (numeroEta < 18) {
         prezzo = prezzo - (prezzo * 20 / 100);
-        console.log('Sconto minorenni applicato');
+        sconto = 'Sconto minorenni (20%)';
     } else if (numeroEta > 65) {
         prezzo = prezzo - (prezzo * 40 / 100);
-        console.log('Sconto over 65 applicato');
+        sconto = 'Sconto over 65 (40%)';
     }
     
      // Mostro il risultato
@@ -48,6 +49,6 @@
     <p>Passeggero: ${nome} ${cognome}</p>
     <p>Sconto applicato: ${sconto}</p>
     <p><strong>Prezzo finale: €${prezzo.toFixed(2)}</strong></p>`;
-    
+
 });
 
