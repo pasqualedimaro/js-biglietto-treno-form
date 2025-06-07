@@ -1,20 +1,29 @@
 
     const form = document.getElementById('form-biglietto');
 
-    form.addEventListener('submit', function() {
-    // ipedisco al form di ricaricare la pagina
+    form.addEventListener('submit', function(event) {
     event.preventDefault();
-    console.log('Form inviato!');
     
+    const nome = document.getElementById('nome').value;
+    const cognome = document.getElementById('cognome').value;
     const km = document.getElementById('km').value;
     const eta = document.getElementById('eta').value;
+    const risultatoDiv = document.getElementById('risultato');
     
+    if (nome == '') {
+        risultatoDiv.innerHTML = '<p>Errore: inserisci il nome!</p>';
+        return;
+    }
+    if (cognome == '') {
+        risultatoDiv.innerHTML = '<p>Errore: inserisci il cognome!</p>';
+        return;
+    }
     if (km == '') {
-        console.log('Errore: inserisci i km!');
+        risultatoDiv.innerHTML = '<p>Errore: inserisci i km!</p>';
         return;
     }
     if (eta == '') {
-        console.log('Errore: inserisci età!');
+        risultatoDiv.innerHTML = '<p>Errore: inserisci età!</p>';
         return;
     }
     
@@ -33,5 +42,12 @@
         console.log('Sconto over 65 applicato');
     }
     
-    console.log('Prezzo finale:', prezzo);
+     // Mostro il risultato
+    risultatoDiv.innerHTML = 
+    `<h2>Il tuo biglietto:</h2>
+    <p>Passeggero: ${nome} ${cognome}</p>
+    <p>Sconto applicato: ${sconto}</p>
+    <p><strong>Prezzo finale: €${prezzo.toFixed(2)}</strong></p>`;
+    
 });
+
