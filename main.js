@@ -33,6 +33,16 @@ bottone.addEventListener('click', function() {
     const numeroKm = Number(km);
     const numeroEta = Number(eta);
     
-    const prezzo = numeroKm * 0.21;
-    console.log('Prezzo:', prezzo);
+    let prezzo = numeroKm * 0.21;
+    
+    // Sconti per età
+    if (numeroEta < 18) {
+        prezzo = prezzo - (prezzo * 20 / 100);
+        console.log('Sconto minorenni applicato');
+    } else if (numeroEta > 65) {
+        prezzo = prezzo - (prezzo * 40 / 100);
+        console.log('Sconto over 65 applicato');
+    }
+    
+    console.log('Prezzo finale:', prezzo);
 });
