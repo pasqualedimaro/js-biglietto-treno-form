@@ -64,7 +64,7 @@
      // genero i dati casuali per il biglietto
     const numeroOrdine = generaNumeroOrdine();
     const postoSedere = generaPostoSedere();
-    const carrozza = generaCarrozza();
+    const carrozza = generaCarrozza();                                                                                                     
     
      // Mostro il risultato
     risultatoDiv.innerHTML = 
